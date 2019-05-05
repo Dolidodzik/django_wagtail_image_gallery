@@ -24,9 +24,16 @@ class GalleryIndexPage(Page):
 
 # GallerySubpage that shows images
 class GallerySubpage(Page):
-    date = models.DateField("Post date")
+    #date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)
+
+    def main_image(self):
+        gallery_item = self.gallery_images.first()
+        if gallery_item:
+            return gallery_item.image
+        else:
+            return None
 
     search_fields = Page.search_fields + [
         index.SearchField('intro'),
@@ -34,7 +41,18 @@ class GallerySubpage(Page):
     ]
 
     content_panels = Page.content_panels + [
-        FieldPanel('date'),
+        #FieldPanel('date'),
         FieldPanel('intro'),
         FieldPanel('body', classname="full"),
+        InlinePanel('gallery_images', label="Gallery images"),
+    ]
+
+class GalleryImage(Orderable):
+    page = ParentalKey(GallerySubpage, on_delete=models.CASCADE, related_name='gallery_images')
+    image = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
+
+    panels = [
+        ImageChooserPanel('image'),
     ]

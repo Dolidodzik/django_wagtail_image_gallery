@@ -1,10 +1,13 @@
 from django.db import models
-from wagtail.core.models import Page
+from wagtail.core.models import Page, Orderable
 from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, InlinePanel
 from wagtail.search import index
+from modelcluster.fields import ParentalKey
+from wagtail.images.edit_handlers import ImageChooserPanel
 
 
+# Gallery index page, that links to GallerySubpages
 class GalleryIndexPage(Page):
     intro = RichTextField(blank=True)
 
@@ -18,6 +21,8 @@ class GalleryIndexPage(Page):
         context['gallery_subpages'] = gallery_subpages
         return context
 
+
+# GallerySubpage that shows images
 class GallerySubpage(Page):
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)

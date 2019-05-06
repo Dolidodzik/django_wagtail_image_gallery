@@ -11,14 +11,11 @@
 
     {% for subpage in gallery_subpages %}
       {% with subpage=subpage.specific %}
-          <h2><a href="{% pageurl subpage %}">{{ subpage.title }}</a></h2>
-
-          {% with subpage.main_image as main_image %}
-              {% if main_image %}{% image main_image fill-160x100 %}{% endif %}
-          {% endwith %}
-
-          <p>{{ subpage.intro }}</p>
-          {{ subpage.body|richtext }}
+          <a href="{% pageurl subpage %}">
+            {% with subpage.main_image as main_image %}
+                {% if main_image %}{% image main_image fill-100x100 %}{% endif %}
+            {% endwith %}
+          </a>
       {% endwith %}
     {% endfor %}
 

@@ -19,13 +19,18 @@
           {% with subpage=subpage.specific %}
                 {% with subpage.main_image as main_image %}
 
-                    <!-- Those lines creates image that links to subpage -->
-                    <a href="{% pageurl subpage %}">
-                      {% if main_image %}
-                        {% image main_image fill-250x250 as image %}
-                        <img src="{{ image.url }}" alt="Image not found"/>
-                      {% endif %}
-                    </a>
+                  <div class = "image_container remove-all-margin-padding col-4 col-md-4 col-lg-3 col-xl-2">
+
+                      <a href="{% pageurl subpage %}">
+                        {% if main_image %}
+                          {% image main_image fill-350x350 as image %}
+                          <div>
+                            <img src="{{ image.url }}" alt="Image not found" class = "img-fluid full-size"/>
+                          </div>
+                        {% endif %}
+                      </a>
+
+                  </div>
 
                 {% endwith %}
           {% endwith %}

@@ -1,5 +1,16 @@
-/* Maybe it'll help */
-
 body{
-  background-color: #123;
+  background-color: #999;
 }
+
+.remove-all-margin-padding{
+margin:0 ! important;
+padding:0 ! important;
+background-color: pink;
+}
+
+
+/*@media screen and (min-width: 950px){
+  .image_container img{
+    width: 20vw;
+  }
+}*/

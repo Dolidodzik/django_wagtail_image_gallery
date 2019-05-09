@@ -2,15 +2,11 @@ body{
   background-color: #999;
 }
 
-.remove-all-margin-padding{
-margin:0 ! important;
-padding:0 ! important;
-background-color: pink;
+.image_container{
+  border: 10px pink solid;
 }
 
 
-/*@media screen and (min-width: 950px){
-  .image_container img{
-    width: 20vw;
-  }
-}*/
+* {
+  padding: 0 ! important;
+}

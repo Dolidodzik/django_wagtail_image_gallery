@@ -6,7 +6,6 @@ from wagtail.search import index
 from modelcluster.fields import ParentalKey
 from wagtail.images.edit_handlers import ImageChooserPanel
 
-
 # Gallery index page, that links to GallerySubpages
 class GalleryIndexPage(Page):
     intro = RichTextField(blank=True)
@@ -22,18 +21,18 @@ class GalleryIndexPage(Page):
         return context
 
 
-# GallerySubpage that shows images
+# GallerySubpage that contains images
 class GallerySubpage(Page):
-    #date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)
 
-    def main_image(self):
-        gallery_item = self.gallery_images.first()
-        if gallery_item:
-            return gallery_item.image
-        else:
-            return None
+    miniature = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
 
     search_fields = Page.search_fields + [
         index.SearchField('intro'),
@@ -41,10 +40,10 @@ class GallerySubpage(Page):
     ]
 
     content_panels = Page.content_panels + [
-        #FieldPanel('date'),
         FieldPanel('intro'),
         FieldPanel('body', classname="full"),
-        InlinePanel('gallery_images', label="Gallery images"),
+        InlinePanel('gallery_images', label = "Images that will be displayed on this page"),
+        ImageChooserPanel('miniature'),
     ]
 
 class GalleryImage(Orderable):

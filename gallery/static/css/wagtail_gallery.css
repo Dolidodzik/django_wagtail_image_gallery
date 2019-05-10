@@ -2,8 +2,16 @@ body{
   background-color: #525252;
 }
 
+.image_grid{
+  border-bottom: 10px solid pink;
+  border-left: 10px solid pink;
+}
+
 .image_container{
-  border: 10px #373737 solid;
+  padding: 15px;
+  text-align: center;
+  border-top: 10px solid pink;
+  border-right: 10px solid pink;
 }
 
 

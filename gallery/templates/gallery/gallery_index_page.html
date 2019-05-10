@@ -14,7 +14,7 @@
     <div class="intro">{{ page.intro|richtext }}</div>
 
     <div class = "container">
-      <div class="row">
+      <div class="row image_grid">
         {% for subpage in gallery_subpages %}
           {% with subpage=subpage.specific %}
                 {% with subpage.miniature as main_image %}

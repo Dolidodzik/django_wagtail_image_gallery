@@ -1,5 +1,6 @@
 body{
   background-color: #525252;
+  text-align: center;
 }
 
 .image_grid{
@@ -7,12 +8,19 @@ body{
   border-top:5px solid white;
 }
 
+.image_grid > * {
+  padding: 0 ! important;
+}
+
 .image_container{
   border-right:5px solid white;
   border-bottom:5px solid white;
 }
 
+.image{
+  border:2px solid pink;
+}
 
-* {
-  padding: 0 ! important;
+.intro{
+  padding: 100px;
 }

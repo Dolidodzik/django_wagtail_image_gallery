@@ -4,38 +4,46 @@
 
 {% block extra_css %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/wagtail_gallery.css' %}">
+
+    <style>
+      body{
+        background-image: url("{%  static 'images/white-waves.png'  %}");
+      }
+    </style>
+
 {% endblock %}
 
 {% block body_class %}template-blogindexpage{% endblock %}
 
 {% block content %}
-    <h1>{{ page.title }}</h1>
 
-    <div class="intro">{{ page.intro|richtext }}</div>
+    <div class="intro"> {{ page.intro|richtext }} </div>
 
-    <div class = "container">
-      <div class="row image_grid">
-        {% for subpage in gallery_subpages %}
-          {% with subpage=subpage.specific %}
-                {% with subpage.miniature as main_image %}
+    <main class = "image_grid_container">
+      <div class = "container">
+        <div class="row image_grid">
+          {% for subpage in gallery_subpages %}
+            {% with subpage=subpage.specific %}
+                  {% with subpage.miniature as main_image %}
 
-                  <div class = "image_container col-4 col-md-4 col-lg-3 col-xl-2 image_container">
+                    <div class = "image_container col-4 col-md-4 col-lg-3 col-xl-2 image_container">
 
-                      <a href="{% pageurl subpage %}">
-                        {% if main_image %}
-                          {% image main_image fill-350x350 as image %}
-                          <div>
-                            <img src="{{ image.url }}" alt="Image not found" class = "img-fluid full-size"/>
-                          </div>
-                        {% endif %}
-                      </a>
+                        <a href="{% pageurl subpage %}">
+                          {% if main_image %}
+                            {% image main_image fill-350x350 as image %}
+                            <div>
+                              <img src="{{ image.url }}" alt="Image not found" class = "img-fluid full-size image"/>
+                            </div>
+                          {% endif %}
+                        </a>
 
-                  </div>
+                    </div>
 
-                {% endwith %}
-          {% endwith %}
-        {% endfor %}
+                  {% endwith %}
+            {% endwith %}
+          {% endfor %}
+        </div>
       </div>
-    </div>
+    </main>
 
 {% endblock %}

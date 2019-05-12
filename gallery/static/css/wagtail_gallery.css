@@ -3,6 +3,17 @@ body{
   text-align: center;
 }
 
+a{
+  decoration: none;
+  color: #000;
+  font-weight: 700;
+}
+
+ul{
+  list-style-position: inside;
+  font-style: italic;
+}
+
 .image_grid{
   border-left:5px solid white;
   border-top:5px solid white;

@@ -1,12 +1,12 @@
 body{
   background-color: #525252;
   text-align: center;
+  font-family: 'Baloo Bhai', cursive;
 }
 
 a{
   decoration: none;
   color: #000;
-  font-weight: 700;
 }
 
 ul{
@@ -14,24 +14,38 @@ ul{
   font-style: italic;
 }
 
-.image_grid{
-  border-left:5px solid white;
-  border-top:5px solid white;
-}
-
 .image_grid > * {
-  padding: 0 ! important;
+  padding: 5px 5px 5px 5px ! important;
 }
 
-.image_container{
-  border-right:5px solid white;
-  border-bottom:5px solid white;
-}
-
-.image{
-  border:2px solid pink;
+h2, h3, h4::after{
+  margin-bottom: 3vh;
 }
 
 .intro{
-  padding: 100px;
+  padding: 7vw;
 }
+
+.image{
+  opacity: 0.99;
+  transition: .1s;
+  border-radius: 5px;
+}
+
+.image:hover{
+  opacity: 1;
+}
+
+/* .image_grid{
+  border-left:5px solid yellow;
+  border-top:5px solid yellow;
+}
+
+.image_container{
+  border-right:5px solid yellow;
+  border-bottom:5px solid yellow;
+}
+
+.image{
+  border:5px solid pink;
+} */

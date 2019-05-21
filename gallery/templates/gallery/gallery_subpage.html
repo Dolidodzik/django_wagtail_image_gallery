@@ -1,23 +1,42 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load static wagtailcore_tags wagtailimages_tags %}
 
 {% block body_class %}template-blogpage{% endblock %}
 
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/wagtail_gallery.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
+    <style>
+      body{
+        background-image: url("{%  static 'images/white-waves.png'  %}");
+      }
+    </style>
+{% endblock %}
+
 {% block content %}
-    <h1>{{ page.title }}</h1>
-    <p class="meta">{{ page.date }}</p>
 
-    <div class="intro">{{ page.intro }}</div>
+    <div class="intro"> {{ page.body|richtext }} <a href="{{ page.get_parent.url }}" class = "back_to_homepage">Return to homepage</a> </div>
 
-    {{ page.body|richtext }}
 
-    {% for item in page.gallery_images.all %}
-        <div style="float: left; margin: 10px">
-            {% image item.image fill-320x240 %}
+
+    <main class = "image_grid_container">
+      <div class = "container">
+        <div class="row image_grid">
+
+          {% for item in page.gallery_images.all %}
+            <div class = "image_container col-4 col-md-4 col-lg-3 col-xl-2 image_container">
+              {% image item.image fill-350x350 as image %}
+              <div class = "image_div">
+                <img src="{{ image.url }}" alt="Image not found" class = "img-fluid full-size image"/>
+              </div>
+            </div>
+          {% endfor %}
+
         </div>
-    {% endfor %}
+      </div>
+    </main>
 
-    <p><a href="{{ page.get_parent.url }}">Return to home</a></p>
+
 
 {% endblock %}

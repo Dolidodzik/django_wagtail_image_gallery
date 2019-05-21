@@ -27,14 +27,18 @@ h2, h3, h4::after{
 }
 
 .image{
-  /* opacity: 0.99; */
-  transition: all .5s ease-in-out;
+  /* opacity: 0.95; */
+  transition: all .4s linear;
   border-radius: 5px;
 }
 
 .image:hover{
   /* opacity: 1; */
-  transform: scale(1.025);
+  transform: scale(1.1);
+}
+
+.image_div{
+  overflow: hidden;
 }
 
 /* .image_grid{

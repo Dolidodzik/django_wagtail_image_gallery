@@ -23,19 +23,18 @@
         <div class="row image_grid">
           {% for subpage in gallery_subpages %}
             {% with subpage=subpage.specific %}
-                  {% with subpage.miniature as main_image %}
+                  {% with subpage.miniature as miniature %}
 
                     <div class = "image_container col-4 col-md-4 col-lg-3 col-xl-2 image_container">
 
                         <a href="{% pageurl subpage %}">
-                          {% if main_image %}
-                            {% image main_image fill-350x350 as image %}
-                            <div>
+                          {% if miniature %}
+                            {% image miniature fill-350x350 as image %}
+                            <div class = "image_div">
                               <img src="{{ image.url }}" alt="Image not found" class = "img-fluid full-size image"/>
                             </div>
                           {% endif %}
                         </a>
-
                     </div>
 
                   {% endwith %}

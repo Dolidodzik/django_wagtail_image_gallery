@@ -26,9 +26,14 @@
 
           {% for item in page.gallery_images.all %}
             <div class = "image_container col-4 col-md-4 col-lg-3 col-xl-2 image_container">
-              {% image item.image fill-350x350 as image %}
+
+              {% image item.image fill-300x300 as miniature %}
+              {% image item.image width-1500 as big_image %}
               <div class = "image_div">
-                <img src="{{ image.url }}" alt="Image not found" class = "img-fluid full-size image"/>
+
+                <!-- <img src="{{ image.url }}" alt="Image not found" class = "img-fluid full-size image" data-imagebox="gallery" /> -->
+                <img src="{{ miniature.url }}" alt="Image not found" class = "img-fluid full-size image" data-imagebox="gallery" data-imagebox-src="{{ big_image.url }}">
+
               </div>
             </div>
           {% endfor %}

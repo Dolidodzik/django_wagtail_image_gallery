@@ -16,8 +16,13 @@
 
 {% block content %}
 
-    <div class="intro"> {{ page.body|richtext }} <a href="{{ page.get_parent.url }}" class = "back_to_homepage">Return to homepage</a> </div>
+    <h1 class="subpage-header"> {{page.title}} </h1>
 
+    <div class="subpage-body-text"> {{ page.body|richtext }} </div>
+
+    <div class = "back_to_homepage">
+      <a href="{{ page.get_parent.url }}"> Return to homepage </a>
+    </div>
 
 
     <main class = "image_grid_container">

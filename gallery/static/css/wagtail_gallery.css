@@ -22,8 +22,24 @@ h2, h3, h4::after{
   margin-bottom: 3vh;
 }
 
-.intro{
-  padding: 7vw;
+.subpage-header{
+  margin-top: 7vh;
+  margin-bottom: 5vh;
+}
+
+.back_to_homepage{
+  margin-bottom: 5vh;
+  margin-top: 7vh;
+  font-size: 21px;
+}
+
+.intro-home{
+  margin-top: 12vh;
+  margin-bottom: 4vh;
+}
+
+.subpage-body-text{
+  font-size: 20px;
 }
 
 .image{

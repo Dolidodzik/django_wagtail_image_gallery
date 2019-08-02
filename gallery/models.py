@@ -26,6 +26,8 @@ class GallerySubpage(Page):
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)
 
+
+
     miniature = models.ForeignKey(
         'wagtailimages.Image',
         null=True,

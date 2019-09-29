@@ -16,7 +16,7 @@
 
 {% block content %}
 
-    <h1 class="subpage-header"> {{page.title}} </h1>
+    <h1 class="subpage-header">  </h1>
 
     <div class="subpage-body-text"> {{ page.body|richtext }} </div>
 
@@ -30,14 +30,14 @@
         <div class="row image_grid">
 
           {% for item in page.gallery_images.all %}
-            <div class = "image_container col-4 col-md-4 col-lg-3 col-xl-2 image_container">
+            <div class = "image_container col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 image_container">
 
-              {% image item.image fill-300x300 as miniature %}
+              {% image item.image fill-200x200 as img %}
               {% image item.image width-1500 as big_image %}
               <div class = "image_div">
 
                 <!-- <img src="{{ image.url }}" alt="Image not found" class = "img-fluid full-size image" data-imagebox="gallery" /> -->
-                <img src="{{ miniature.url }}" alt="Image not found" class = "img-fluid full-size image" data-imagebox="gallery" data-imagebox-src="{{ big_image.url }}">
+                <img src="{{ img.url }}" alt="Image not found" class = "img-fluid full-size image" data-imagebox="gallery" data-imagebox-src="{{ big_image.url }}">
 
               </div>
             </div>

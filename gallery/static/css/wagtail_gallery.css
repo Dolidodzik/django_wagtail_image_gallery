@@ -19,18 +19,18 @@ ul{
 }
 
 h2, h3, h4::after{
-  margin-bottom: 3vh;
+  margin-bottom: 6vh;
 }
 
 .subpage-header{
-  margin-top: 7vh;
-  margin-bottom: 5vh;
+  margin-top: 12vh;
 }
 
 .back_to_homepage{
   margin-bottom: 5vh;
   margin-top: 7vh;
   font-size: 21px;
+  text-decoration: underline;
 }
 
 .intro-home{
@@ -57,16 +57,59 @@ h2, h3, h4::after{
   overflow: hidden;
 }
 
-/* .image_grid{
-  border-left:5px solid yellow;
-  border-top:5px solid yellow;
+@media only screen and (max-width: 576px) {
+  body{
+    padding: 0px 15px;
+    padding-bottom: 150px;
+  }
 }
-
-.image_container{
-  border-right:5px solid yellow;
-  border-bottom:5px solid yellow;
+@media only screen and (max-width: 768px) {
+  body{
+    padding: 0px 40px;
+    padding-bottom: 200px;
+  }
 }
-
-.image{
-  border:5px solid pink;
-} */
+@media only screen and (max-width: 992px) {
+  body{
+    padding: 0px 40px;
+    padding-bottom: 200px;
+  }
+  .subpage-body-text{
+    font-size: 21px;
+  }
+  .intro-home{
+    font-size: 21px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .subpage-body-text{
+    font-size: 22px;
+  }
+  .intro-home{
+    font-size: 22px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  body{
+    padding: 0px 100px;
+    padding-bottom: 250px;
+  }
+  .subpage-body-text{
+    font-size: 23px;
+  }
+  .intro-home{
+    font-size: 23px;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  body{
+    padding: 0px 150px;
+    padding-bottom: 300px;
+  }
+  .subpage-body-text{
+    font-size: 23px;
+  }
+  .intro-home{
+    font-size: 23px;
+  }
+}

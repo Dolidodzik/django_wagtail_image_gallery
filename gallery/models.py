@@ -23,10 +23,9 @@ class GalleryIndexPage(Page):
 
 # GallerySubpage that contains images
 class GallerySubpage(Page):
-    intro = models.CharField(max_length=250)
+
+    subpage_title = models.CharField(max_length=250)
     body = RichTextField(blank=True)
-
-
 
     miniature = models.ForeignKey(
         'wagtailimages.Image',
@@ -37,12 +36,12 @@ class GallerySubpage(Page):
     )
 
     search_fields = Page.search_fields + [
-        index.SearchField('intro'),
+        index.SearchField('subpage_title'),
         index.SearchField('body'),
     ]
 
     content_panels = Page.content_panels + [
-        FieldPanel('intro'),
+        FieldPanel('subpage_title'),
         FieldPanel('body', classname="full"),
         InlinePanel('gallery_images', label = "Images that will be displayed on this page"),
         ImageChooserPanel('miniature'),

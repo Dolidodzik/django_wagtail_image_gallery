@@ -1,5 +1,3 @@
-#Image Gallery
-
 ## Simple image gallery, that I created to learn wagtail.
 
 ### Below, you can watch a short GIFs demo:
